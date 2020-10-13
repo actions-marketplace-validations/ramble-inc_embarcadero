@@ -16,7 +16,7 @@ inputs:
   dest-dir:
     description: 'Destination directory in the destination repository.'
   dest-branch:
-    description: '[Optional] Branch name for the destination repository. Default: master.'
+    description: '[Optional] Branch name for the destination repository. Default: main.'
     required: false
 
 runs:

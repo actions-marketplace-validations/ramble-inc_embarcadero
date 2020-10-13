@@ -42,7 +42,7 @@ Inspired by
 
 |`dest-branch`
 |
-|Branch name for the destination repository. Default: `master`.
+|Branch name for the destination repository. Default: `main`.
 |===
 
 == Example
@@ -58,6 +58,6 @@ Inspired by
     src-files: '*.js'
     dest-username: 'dest-username'
     dest-repo: 'dest-repo'
-    dest-dir: 'generated'
-    dest-branch: 'master'
+    dest-dir: '/generated'
+    dest-branch: 'master' # default is "main"
 ----

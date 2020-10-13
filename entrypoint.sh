@@ -8,7 +8,7 @@ SRC_FILES="$3"
 DEST_USERNAME="$4"
 DEST_REPO="$5"
 DEST_DIR="$6"
-DEST_BRANCH=${7:-master}
+DEST_BRANCH=${7:-main}
 
 # input validation
 if [ -z "$AUTHOR_USERNAME" ]
