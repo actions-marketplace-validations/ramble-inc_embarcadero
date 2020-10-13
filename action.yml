@@ -1,0 +1,36 @@
+name: 'Embarcadero'
+
+description: 'Commit and push files to another GitHub repository'
+
+inputs:
+  author-username:
+    description: 'Username for the commit author for the destination repository.'
+  author-email:
+    description: 'Email for the commit author for the destination repository. If unknown, use <>.'
+  src-files:
+    description: 'Source directory in the source repository.'
+  dest-username:
+    description: 'GitHub username/organization for the destination repository.'
+  dest-repo:
+    description: 'Destination repository name.'
+  dest-dir:
+    description: 'Destination directory in the destination repository.'
+  dest-branch:
+    description: '[Optional] Branch name for the destination repository. Default: master.'
+    required: false
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.author-username }}
+    - ${{ inputs.author-email }}
+    - ${{ inputs.src-files }}
+    - ${{ inputs.dest-username }}
+    - ${{ inputs.dest-repo }}
+    - ${{ inputs.dest-dir }}
+    - ${{ inputs.dest-branch }}
+    
+branding:
+  icon: 'git-commit'
+  color: 'green'

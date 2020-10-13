@@ -1,0 +1,64 @@
+= Embarcadero
+:icons: font
+
+Commit and push files from one GitHub repository to another.
+
+Inspired by
+
+* https://github.com/cpina/github-action-push-to-another-repository[github-action-push-to-another-repository]
+* https://github.com/cpina/push-to-another-repository-output[push-to-another-repository-output]
+
+== Inputs
+
+[cols="2,1,5", options="header"] 
+|===
+|Name
+|Required
+|Description
+
+|`author-username`
+|icon:check[role="green"]
+|Username for the commit author for the destination repository.
+
+|`author-email`
+|icon:check[role="green"]
+|Email for the commit author for the destination repository. If unknown, use `<>`.
+
+|`src-files`
+|icon:check[role="green"]
+|Source directory in the source repository.
+
+|`dest-username`
+|icon:check[role="green"]
+|GitHub username/organization for the destination repository.
+
+|`dest-repo`
+|icon:check[role="green"]
+|Destination repository name.
+
+|`dest-dir`
+|icon:check[role="green"]
+|Destination directory in the destination repository.
+
+|`dest-branch`
+|
+|Branch name for the destination repository. Default: `master`.
+|===
+
+== Example
+.ci.yml
+[source,yml]
+----
+- name: Embarcadero
+  uses: ramble-inc/embarcadero@master
+  env:
+    ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+  with:
+    author-username: 'johndoe'
+    author-email: 'email@example.com'
+    src-files: '*.proto'
+    dest-username: 'dest-username'
+    dest-repo: 'dest-repo'
+    dest-dir: '/generated'
+    dest-branch: 'master'
+----
