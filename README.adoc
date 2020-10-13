@@ -49,16 +49,15 @@ Inspired by
 .ci.yml
 [source,yml]
 ----
-- name: Embarcadero
-  uses: ramble-inc/embarcadero@master
+- uses: ramble-inc/embarcadero@master
   env:
     ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
   with:
     author-username: 'johndoe'
     author-email: 'email@example.com'
-    src-files: '*.proto'
+    src-files: '*.js'
     dest-username: 'dest-username'
     dest-repo: 'dest-repo'
-    dest-dir: '/generated'
+    dest-dir: 'generated'
     dest-branch: 'master'
 ----
