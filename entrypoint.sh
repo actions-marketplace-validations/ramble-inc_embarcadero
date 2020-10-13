@@ -59,7 +59,12 @@ ls -la
 echo "Committing to $DEST_USERNAME/$DEST_REPO..."
 git add .
 git status
-git commit -m "Update from https://github.com/$GITHUB_REPOSITORY/commit/$GITHUB_SHA"
 
-echo "Pushing to $DEST_USERNAME/$DEST_REPO@$DEST_BRANCH..."
-git push origin "$DEST_BRANCH"
+# avoid failing with "nothing to commit, working tree clean"
+if !(git diff-index --quiet HEAD)
+then
+  git commit -m "Update from https://github.com/$GITHUB_REPOSITORY/commit/$GITHUB_SHA"
+  echo "Pushing to $DEST_USERNAME/$DEST_REPO@$DEST_BRANCH..."
+  git push origin "$DEST_BRANCH"
+fi
+
