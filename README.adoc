@@ -55,9 +55,9 @@ Inspired by
   with:
     author-username: 'johndoe'
     author-email: 'email@example.com'
-    src-files: '*.js'
-    dest-username: 'dest-username'
-    dest-repo: 'dest-repo'
+    src-files: 'dist/*.js'
+    dest-username: 'my-username'
+    dest-repo: 'my-dest-repo'
     dest-dir: '/generated'
     dest-branch: 'master' # default is "main"
 ----

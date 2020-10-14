@@ -56,15 +56,18 @@ cp -r $SRC_FILES "$CLONE_DIR/$DEST_DIR"
 cd "$CLONE_DIR"
 ls -la
 
-echo "Committing to $DEST_USERNAME/$DEST_REPO..."
 git add .
 git status
 
 # avoid failing with "nothing to commit, working tree clean"
-if !(git diff-index --quiet HEAD)
+if (git diff-index --quiet HEAD)
 then
-  git commit -m "Update from https://github.com/$GITHUB_REPOSITORY/commit/$GITHUB_SHA"
-  echo "Pushing to $DEST_USERNAME/$DEST_REPO@$DEST_BRANCH..."
-  git push origin "$DEST_BRANCH"
+  echo "nothing to commit, working tree clean"
+  return -1
 fi
 
+echo "Committing to $DEST_USERNAME/$DEST_REPO..."
+git commit -m "Update from https://github.com/$GITHUB_REPOSITORY/commit/$GITHUB_SHA"
+
+echo "Pushing to $DEST_USERNAME/$DEST_REPO@$DEST_BRANCH..."
+git push origin "$DEST_BRANCH"
