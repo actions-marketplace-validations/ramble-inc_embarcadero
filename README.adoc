@@ -6,7 +6,6 @@ Commit and push files from one GitHub repository to another.
 Inspired by
 
 * https://github.com/cpina/github-action-push-to-another-repository[github-action-push-to-another-repository]
-* https://github.com/cpina/push-to-another-repository-output[push-to-another-repository-output]
 
 == Inputs
 

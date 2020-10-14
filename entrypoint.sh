@@ -63,7 +63,7 @@ git status
 if (git diff-index --quiet HEAD)
 then
   echo "nothing to commit, working tree clean"
-  return -1
+  return 0
 fi
 
 echo "Committing to $DEST_USERNAME/$DEST_REPO..."
