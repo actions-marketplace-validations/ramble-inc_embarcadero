@@ -1,7 +1,7 @@
 = Embarcadero
 :icons: font
 
-Commit and push files from one GitHub repository to another.
+Commit and push files from a GitHub repository to another, and then create a pull request
 
 Inspired by
 
@@ -44,6 +44,17 @@ Inspired by
 |Branch name for the destination repository. Default: `main`.
 |===
 
+|`create-pr`
+|
+|Whether to create a pull request after pushing to the destination repository. Default: `false`.
+|===
+
+|`dest-pr-base-branch`
+|
+|Base branch name for a pull request to be created. Default: `main`.
+|===
+
+
 == Example
 .ci.yml
 [source,yml]
@@ -59,4 +70,6 @@ Inspired by
     dest-repo: 'my-dest-repo'
     dest-dir: '/generated'
     dest-branch: 'master' # default is "main"
+    create-pr: true
+    dest-pr-base-branch: 'master' # default is "main"
 ----

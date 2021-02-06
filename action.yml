@@ -1,22 +1,34 @@
 name: 'Embarcadero'
 
-description: 'Commit and push files to another GitHub repository'
+description: 'Commit and push files from a GitHub repository to another, and then create a pull request'
 
 inputs:
   author-username:
     description: 'Username for the commit author for the destination repository.'
+    required: true
   author-email:
     description: 'Email for the commit author for the destination repository. If unknown, use <>.'
+    required: true
   src-files:
     description: 'Source directory in the source repository.'
+    required: true
   dest-username:
     description: 'GitHub username/organization for the destination repository.'
+    required: true
   dest-repo:
     description: 'Destination repository name.'
+    required: true
   dest-dir:
     description: 'Destination directory in the destination repository.'
+    required: true
   dest-branch:
     description: '[Optional] Branch name for the destination repository. Default: main.'
+    required: false
+  create-pr:
+    description: '[Optional] Whether to create a pull request after pushing to the destination repository. Default: false.'
+    required: false
+  dest-pr-base-branch:
+    description: '[Optional] Base branch name for a pull request to be created. Default: main.'
     required: false
 
 runs:
@@ -30,6 +42,8 @@ runs:
     - ${{ inputs.dest-repo }}
     - ${{ inputs.dest-dir }}
     - ${{ inputs.dest-branch }}
+    - ${{ inputs.create-pr }}
+    - ${{ inputs.dest-pr-base-branch }}
     
 branding:
   icon: 'git-commit'
