@@ -1,25 +1,22 @@
-name: 'Embarcadero'
+name: Embarcadero
 
-description: 'Commit and push files from a GitHub repository to another, and then create a pull request'
+description: Commit and push files from a GitHub repository to another, and then create a pull request
 
 inputs:
   author-username:
-    description: 'Username for the commit author for the destination repository.'
+    description: Username for the commit author for the destination repository.
     required: true
   author-email:
-    description: 'Email for the commit author for the destination repository. If unknown, use <>.'
+    description: Email for the commit author for the destination repository. If unknown, use <>.
     required: true
-  src-files:
-    description: 'Source directory in the source repository.'
+  mappings:
+    description: JSON mapping of src file and dest directory compatible with `cp -r`. e.g. `'[{"src":"/file.txt","dest":"/dest"}]'`
     required: true
   dest-username:
-    description: 'GitHub username/organization for the destination repository.'
+    description: GitHub username/organization for the destination repository.
     required: true
   dest-repo:
-    description: 'Destination repository name.'
-    required: true
-  dest-dir:
-    description: 'Destination directory in the destination repository.'
+    description: Destination repository name.
     required: true
   dest-branch:
     description: '[Optional] Branch name for the destination repository. Default: main.'
@@ -32,19 +29,18 @@ inputs:
     required: false
 
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
+  using: docker
+  image: Dockerfile
   args:
     - ${{ inputs.author-username }}
     - ${{ inputs.author-email }}
-    - ${{ inputs.src-files }}
+    - ${{ inputs.mappings }}
     - ${{ inputs.dest-username }}
     - ${{ inputs.dest-repo }}
-    - ${{ inputs.dest-dir }}
     - ${{ inputs.dest-branch }}
     - ${{ inputs.create-pr }}
     - ${{ inputs.dest-pr-base-branch }}
     
 branding:
-  icon: 'git-commit'
-  color: 'green'
+  icon: git-commit
+  color: green

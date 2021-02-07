@@ -23,9 +23,9 @@ Inspired by
 |icon:check[role="green"]
 |Email for the commit author for the destination repository. If unknown, use `<>`.
 
-|`src-files`
+|`mappings`
 |icon:check[role="green"]
-|Source directory in the source repository.
+|JSON mapping of src file and dest directory compatible with `cp -r`. e.g. `'[{"src":"/file.txt","dest":"/dest"}]'`
 
 |`dest-username`
 |icon:check[role="green"]
@@ -34,10 +34,6 @@ Inspired by
 |`dest-repo`
 |icon:check[role="green"]
 |Destination repository name.
-
-|`dest-dir`
-|icon:check[role="green"]
-|Destination directory in the destination repository.
 
 |`dest-branch`
 |
@@ -65,10 +61,9 @@ Inspired by
   with:
     author-username: 'johndoe'
     author-email: 'email@example.com'
-    src-files: 'dist/*.js'
+    mappings: '[{"src":"/file.txt","dest":"/dest"}]'
     dest-username: 'my-username'
     dest-repo: 'my-dest-repo'
-    dest-dir: '/generated'
     dest-branch: 'master' # default is "main"
     create-pr: true
     dest-pr-base-branch: 'master' # default is "main"
