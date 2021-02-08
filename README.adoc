@@ -1,7 +1,7 @@
 = Embarcadero
 :icons: font
 
-Commit and push files from one GitHub repository to another.
+Commit and push files from a GitHub repository to another, and then create a pull request
 
 Inspired by
 
@@ -23,9 +23,9 @@ Inspired by
 |icon:check[role="green"]
 |Email for the commit author for the destination repository. If unknown, use `<>`.
 
-|`src-files`
+|`mappings`
 |icon:check[role="green"]
-|Source directory in the source repository.
+|JSON mapping of src file and dest directory compatible with `cp -r`. e.g. `'[{"src":"/file.txt","dest":"/dest"}]'`
 
 |`dest-username`
 |icon:check[role="green"]
@@ -35,14 +35,21 @@ Inspired by
 |icon:check[role="green"]
 |Destination repository name.
 
-|`dest-dir`
-|icon:check[role="green"]
-|Destination directory in the destination repository.
-
 |`dest-branch`
 |
 |Branch name for the destination repository. Default: `main`.
 |===
+
+|`create-pr`
+|
+|Whether to create a pull request after pushing to the destination repository. Default: `false`.
+|===
+
+|`dest-pr-base-branch`
+|
+|Base branch name for a pull request to be created. Default: `main`.
+|===
+
 
 == Example
 .ci.yml
@@ -54,9 +61,10 @@ Inspired by
   with:
     author-username: 'johndoe'
     author-email: 'email@example.com'
-    src-files: 'dist/*.js'
+    mappings: '[{"src":"/file.txt","dest":"/dest"}]'
     dest-username: 'my-username'
     dest-repo: 'my-dest-repo'
-    dest-dir: '/generated'
     dest-branch: 'master' # default is "main"
+    create-pr: true
+    dest-pr-base-branch: 'master' # default is "main"
 ----
