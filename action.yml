@@ -1,4 +1,4 @@
-name: Embarcadero
+name: ramble-inc/embarcadero
 
 description: Commit and push files from a GitHub repository to another, and then create a pull request
 
