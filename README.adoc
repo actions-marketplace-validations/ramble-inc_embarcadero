@@ -38,17 +38,14 @@ Inspired by
 |`dest-branch`
 |
 |Branch name for the destination repository. Default: `main`.
-|===
 
 |`create-pr`
 |
 |Whether to create a pull request after pushing to the destination repository. Default: `false`.
-|===
 
 |`dest-pr-base-branch`
 |
 |Base branch name for a pull request to be created. Default: `main`.
-|===
 
 
 == Example
