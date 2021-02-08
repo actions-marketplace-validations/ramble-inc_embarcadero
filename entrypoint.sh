@@ -80,7 +80,7 @@ if "$CREATE_PR"
 then
   echo "Creating a PR $DEST_PR_BASE_BRANCH <- $DEST_BRANCH..."
 
-  TITLE="[Embarcadero]: Update from $DEST_USERNAME/$DEST_REPO"
+  TITLE="[Embarcadero]: Update from $GITHUB_REPOSITORY"
   BODY="## Base Commit\n$COMMIT_URL\n\n## Files\n"
   for FILE in $CHANGED_FILES
   do
