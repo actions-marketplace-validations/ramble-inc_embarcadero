@@ -46,7 +46,7 @@ Inspired by
 |`dest-pr-base-branch`
 |
 |Base branch name for a pull request to be created. Default: `main`.
-
+|===
 
 == Example
 .ci.yml
